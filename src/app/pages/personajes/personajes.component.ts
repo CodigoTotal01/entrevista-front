@@ -2,28 +2,22 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {PersonajesService} from "../../services/personajes.service";
 import {Personaje} from "../../models/personaje.model";
 import {delay, Subscription} from "rxjs";
-import {BusquedasService} from "../../services/busquedas-service.service";
-import {catchError} from "rxjs/operators";
 
 @Component({
   selector: 'app-personajes',
   templateUrl: './personajes.component.html',
 })
-export class PersonajesComponent implements OnInit, OnDestroy {
+export class PersonajesComponent implements OnInit {
   public totalPersonajes: number = 0;
   public personajes: Personaje[]= [];
   public personajeTemporal: Personaje[] =[];
   public cargando: boolean = true;
 
-  public imgSubs!: Subscription;
 
   constructor(private personajeService: PersonajesService,
-  private buscarService: BusquedasService
   ) { }
 
-  ngOnDestroy(): void {
-    this.imgSubs.unsubscribe();
-  }
+
   ngOnInit(): void {
     this.cargarPersonajes();
   }
