@@ -4,9 +4,11 @@ import {environment} from "../../environments/environment";
 import {catchError, map} from "rxjs/operators";
 import {Personaje} from "../models/personaje.model";
 import {delay, of} from "rxjs";
+import {PersonajeAgregar} from "../interfaces/personaje-agregar.interface";
 
 
-const url_rick_morty = environment.url_rick_morty
+const url_rick_morty = environment.url_rick_morty;
+const base_url = environment.base_url;
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +17,18 @@ export class PersonajesService {
 
   constructor(public http: HttpClient) {
   }
+// GETERS
+  get token(): string {
+    return localStorage.getItem('token') || '';
+  }
+
+  get headers(){
+    return {headers: {
+        'x-token': this.token,
+      }}
+  }
+
+
 
   //Por default trae 20 personajes, definido por el propio servicio de https://rickandmortyapi.com/
   cargarPersonajesAPI() {
@@ -49,6 +63,12 @@ export class PersonajesService {
       , catchError(err => of([]))
     )
 
+  }
+
+
+  agregarPersonaje(personaje: PersonajeAgregar){
+    const url = `${base_url}/personajes`;
+    return this.http.post<{ok: boolean, personaje: Personaje} >(url, personaje, this.headers);
   }
 
 

@@ -7,11 +7,13 @@ import {SharedModule} from "../shared/shared.module";
 import {RouterOutlet} from "@angular/router";
 import {BrowserModule} from "@angular/platform-browser";
 import {PersonajesComponent} from "./personajes/personajes.component";
+import { RegistrarPersonajeComponent } from './registrar-personaje/registrar-personaje.component';
 
 @NgModule({
   declarations: [
     PagesComponent,
-    PersonajesComponent
+    PersonajesComponent,
+    RegistrarPersonajeComponent
   ],
   imports: [
     CommonModule,
