@@ -3,6 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {NopagefoundComponent} from "./nopagefound/nopagefound.component";
 import {RouterOutlet} from "@angular/router";
+import {SharedModule} from "./shared/shared.module";
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import {RouterOutlet} from "@angular/router";
   imports: [ //modulos
     BrowserModule,
     RouterOutlet,
+    SharedModule
 
   ],
   bootstrap: [AppComponent]
