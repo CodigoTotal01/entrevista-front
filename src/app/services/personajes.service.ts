@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpInterceptor} from "@angular/common/http";
 import {environment} from "../../environments/environment";
-import {map} from "rxjs/operators";
+import {catchError, map} from "rxjs/operators";
 import {Personaje} from "../models/personaje.model";
-import {delay} from "rxjs";
+import {delay, of} from "rxjs";
 
 
 const url_rick_morty = environment.url_rick_morty
@@ -45,6 +45,8 @@ export class PersonajesService {
           return personajes;
         }
       )
+      //retornar arreglo vacio si no existe el persnaje a buscar
+      , catchError(err => of([]))
     )
 
   }

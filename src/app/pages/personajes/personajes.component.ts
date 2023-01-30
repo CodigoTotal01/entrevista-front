@@ -3,6 +3,7 @@ import {PersonajesService} from "../../services/personajes.service";
 import {Personaje} from "../../models/personaje.model";
 import {delay, Subscription} from "rxjs";
 import {BusquedasService} from "../../services/busquedas-service.service";
+import {catchError} from "rxjs/operators";
 
 @Component({
   selector: 'app-personajes',
@@ -50,8 +51,7 @@ if(termino.length === 0){
       this.personajes = personajes;
       this.cargando = false;
       }
-
-    );
+    )
   }
 
 
