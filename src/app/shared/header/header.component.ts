@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import {Router} from "@angular/router";
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,11 +6,11 @@ import {Router} from "@angular/router";
   styles: [
   ]
 })
-export class HeaderComponent {
-logout(){
+export class HeaderComponent implements OnInit {
 
+  constructor() { }
 
-}
+  ngOnInit(): void {
+  }
 
-  buscar(termino: string){}
 }
