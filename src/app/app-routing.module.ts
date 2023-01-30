@@ -3,17 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component';
 import { PagesComponent } from './pages/pages.component';
-import {PersonajesComponent} from "./pages/personajes/personajes.component";
 
 
 const routes: Routes = [
   {
     path: '',
     component: PagesComponent,
-    children: [
-      { path: 'personajes', component: PersonajesComponent },
-      { path: '', redirectTo: '/personajes', pathMatch: 'full' },
-    ]
+    loadChildren: ()=> import('./pages/pages.module').then(m=>m.PagesModule)
   },
 
   {

@@ -4,7 +4,7 @@ import {PersonajesComponent} from "./personajes/personajes.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'personajes',
     component: PersonajesComponent
   },
   {
