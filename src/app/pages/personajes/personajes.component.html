@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-12">
+    <h4 class="d-inline">Personajes - {{(totalPersonajes)}}</h4>
+    <p class="text-muted m-t-0">Añade un personaje y agrega una review</p>
+    <!-- Row -->
+    <div class="row" >
+      <!-- column  for -->
+      <div class="col-lg-3 col-md-6" *ngFor="let personaje of personajes">
+        <!-- Card -->
+        <div class="card">
+          <img class="card-img-top img-responsive" [src]="personaje.img" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title">{{personaje.nombre}}</h4>
+            <p class="card-text"> Especie: {{personaje.especie}}</p>
+            <p class="card-text"> Genero: {{personaje.genero}}</p>
+            <p class="card-text"> Estado: {{personaje.estado}}</p>
+            <a href="#" class="btn btn-primary">Añadir a tu lista +</a>
+          </div>
+        </div>
+        <!-- Card -->
+      </div>
+    </div>
+    <!-- Row -->
+  </div>
+</div>

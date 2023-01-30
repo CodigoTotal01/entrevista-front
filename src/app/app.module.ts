@@ -10,6 +10,7 @@ import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component'
 import { PagesComponent } from './pages/pages.component';
 import {SharedModule} from "./shared/shared.module";
 import { PersonajesComponent } from './pages/personajes/personajes.component';
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { PersonajesComponent } from './pages/personajes/personajes.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
   bootstrap: [AppComponent]
 })
