@@ -1,13 +1,10 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpInterceptor} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {catchError, map} from "rxjs/operators";
 import {Personaje} from "../models/personaje.model";
 import {delay, of} from "rxjs";
 import {PersonajeAgregar} from "../interfaces/personaje-agregar.interface";
-import * as http from "http";
-
-
 const url_rick_morty = environment.url_rick_morty;
 const base_url = environment.base_url;
 

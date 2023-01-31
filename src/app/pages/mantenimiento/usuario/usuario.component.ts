@@ -5,7 +5,6 @@ import {Usuario} from "../../../models/usuario.model";
 import {UsuariosService} from "../../../services/usuarios.service";
 import Swal from "sweetalert2";
 import {Router} from "@angular/router";
-import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-usuario',
@@ -36,8 +35,7 @@ export class UsuarioComponent implements OnInit {
   actualizarPerfil(){
     this.usuarioService.actualizarPerfil(this.perfilForm.value).subscribe({
       next: (resp) => {
-        const {nombre, nickname} = this.perfilForm.value;
-        //para mostrar los cambios de manera inmediata en cuanto nombres
+        const {nombre, nickname} = this.perfilForm.value;  //actualiza en el front automaticamente la parte del usuario
         this.usuario.nombre =nombre;
         this.usuario.nickname = nickname;
         Swal.fire('Actualizado', "Se actualizo correctamente", 'success')
@@ -56,8 +54,7 @@ export class UsuarioComponent implements OnInit {
       return this.imgTemp = null;
     }
     const reader = new FileReader();
-    //transformar imagen de url a archivo
-    reader.readAsDataURL(file);
+    reader.readAsDataURL(file);    //transformar imagen de url a archivo
     reader.onloadend = () => {
       this.imgTemp = reader.result;
     }
@@ -67,16 +64,7 @@ export class UsuarioComponent implements OnInit {
 
   subirImagen(){
     this.fileUploadService.actualizarFoto(this.imagenSubir, 'usuarios', this.usuario.uid!).then(img => {
-      console.log( "viejo", this.usuarioService.usuario)
-      //no se podia coambiar la referenia de la imagen
-      this.usuario = {
-       ...this.usuario,
-        img
-      }
       this.usuarioService.usuario = this.usuario;
-
-      console.log( "neuvo", this.usuarioService.usuario)
-
       this.fileUploadService.nuevaImagen.emit(img);
        window.location.reload();
       Swal.fire('Imagen subida', 'La imagen se subio correctamente', 'success');

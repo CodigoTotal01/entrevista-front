@@ -5,8 +5,7 @@ import {PersonajeAgregar} from "../../interfaces/personaje-agregar.interface";
 
 @Component({
   selector: 'app-personajes-registrados',
-  templateUrl: './personajes-registrados.component.html',
-  styleUrls: ['./personajes-registrados.component.css']
+  templateUrl: './personajes-registrados.component.html'
 })
 export class PersonajesRegistradosComponent implements OnInit {
   public totalPersonajesAgregados: number = 0;

@@ -1,6 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+/*  Algunos estilos extras*/
 .img-avatar{
- width: 400px;
+ width: 300px;
   padding-bottom: 3rem;
 }
 
@@ -15,4 +15,9 @@
 }
 .borde_redondeado{
   border-radius: 10px;
+}
+
+
+.posicion_normal{
+  height: 50px;
 }

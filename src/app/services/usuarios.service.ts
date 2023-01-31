@@ -84,7 +84,7 @@ export class UsuariosService {
     localStorage.removeItem('token');
   }
 
-  //no deberia existir
+
   cargarImagen(): string{
     return `${ base_url }/uploads/usuarios/${this.usuario.uid}`
   }

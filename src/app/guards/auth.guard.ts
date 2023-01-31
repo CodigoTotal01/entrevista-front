@@ -15,6 +15,8 @@ import {UsuariosService} from "../services/usuarios.service";
 @Injectable({
   providedIn: 'root'
 })
+
+//No permite ingresar a usuarios no registrados
 export class AuthGuard implements CanActivate, CanLoad {
   constructor(private usuarioService: UsuariosService, private router: Router) {
   }

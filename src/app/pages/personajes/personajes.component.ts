@@ -1,7 +1,6 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PersonajesService} from "../../services/personajes.service";
 import {Personaje} from "../../models/personaje.model";
-import {PersonajeAgregar} from "../../interfaces/personaje-agregar.interface";
 
 
 @Component({
@@ -13,10 +12,8 @@ export class PersonajesComponent implements OnInit {
   public personajes: Personaje[] = [];
   public personajeTemporal: Personaje[] = [];
   public cargando: boolean = true;
-
   public personajesRegistrados: Array<string> = [];
 
-    public cool!: [];
 
   constructor(public personajeService: PersonajesService) {
   }
@@ -46,12 +43,10 @@ export class PersonajesComponent implements OnInit {
     });
   }
 
-
+  // para obultar el agregar personaje +
   estaRegistrado(nombrePersonaje: string): boolean{
     return this.personajesRegistrados.includes(nombrePersonaje)
   }
-
-
 
   buscar(termino: string) {
     this.cargando = true;

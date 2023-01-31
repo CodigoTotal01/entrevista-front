@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {UsuariosService} from "../../services/usuarios.service";
 import Swal from 'sweetalert2';
@@ -19,15 +19,14 @@ export class RegisterComponent {
     private router: Router
   ) { }
 
-  //formulario -> agirnar form html -> [formgroup]
+  //Objeto para controlar los campos del formulario
   public registerForm = this.fb.group({
       //como lucira mi formulario valor - validacion
       nombre: ["", [Validators.required]],
       nickname: ["", [Validators.required]],
-      email: ["", [Validators.required]],
+      email: ["", [Validators.required, Validators.email]],
       password: ["", Validators.required],
       password2: ["", Validators.required],
-      terminos: [true, Validators.required]
     },
     //validadores - validadores asincronos
     {
@@ -35,22 +34,26 @@ export class RegisterComponent {
     }
   );
 
-  //usuario
+
   crearUsuario(){
     this.formSubmitted = true;
 
     if (this.registerForm.invalid) {
-
-      return ;
+      return;
     }
 
-    this.usuarioService.crearUsuario(this.registerForm.value).subscribe((resp: any) => {
-      Swal.fire('Succes', `${resp.usuario.nombre}, Hola! :D`, 'success');
-      // Navegar al Dashboard
-      this.router.navigateByUrl('/');
-    }, (err) => {
-      Swal.fire('Error', err.error.msg, 'error')
-    })
+    this.usuarioService.crearUsuario(this.registerForm.value).subscribe(
+      {
+        next: (resp) => {
+            Swal.fire('Succes', `${resp.usuario.nombre}, Hola! :D`, 'success');
+            // Navegar al Dashboard
+            this.router.navigateByUrl('/');
+        },
+        error: (err) => {
+          Swal.fire('Error', err.error.msg, 'error')
+        }
+      }
+    )
 
   }
 
@@ -68,9 +71,6 @@ export class RegisterComponent {
     }
   }
 
-  aceptaTerminos() {
-    return !this.registerForm.get('terminos')?.value && this.formSubmitted;
-  }
 
 
   contrasenasNoValidas() {

@@ -10,7 +10,7 @@ export class FileUploadServiceService {
   public nuevaImagen: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() { }
-
+// Sube la imagen al backend
   async actualizarFoto(
     archivo: File,
     coleccion: 'usuarios' | 'persoanje',
@@ -32,7 +32,7 @@ export class FileUploadServiceService {
       const data = await resp.json();
 
       if(data.ok){
-        return data.modelo.img; // retorna nombre de la nueva imagen
+        return data.modelo.img;
       }else{
         console.log(data.msg)
         return false

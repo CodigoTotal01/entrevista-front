@@ -16,6 +16,8 @@ export class LoginComponent implements OnInit {
               private fb: FormBuilder,
               private usuarioService: UsuariosService
   ) { }
+
+  //Objeto para controlar los campos del formulario
   public loginForm = this.fb.group({
     email: [ localStorage.getItem('email') || '' , [ Validators.required, Validators.email ] ],
     password: ['', Validators.required ],
@@ -26,7 +28,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log(this.loginForm.value);
+
     this.usuarioService.login( (this.loginForm.value as LoginForm) )
       .subscribe(
         {
@@ -36,8 +38,7 @@ export class LoginComponent implements OnInit {
             } else {
               localStorage.removeItem('email');
             }
-
-            // Navegar al Dashboard
+            // Navegar al personajes
             this.router.navigateByUrl('/');
           },
           error: (err) => {

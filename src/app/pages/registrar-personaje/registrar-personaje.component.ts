@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {PersonajesService} from "../../services/personajes.service";
-import {Personaje} from "../../models/personaje.model";
 import {FormBuilder, Validators} from "@angular/forms";
-import {PersonajeAgregar} from "../../interfaces/personaje-agregar.interface";
 import Swal from "sweetalert2";
-import {catchError, retry} from "rxjs/operators";
 
 @Component({
   selector: 'app-registrar-personaje',
@@ -70,13 +67,5 @@ export class RegistrarPersonajeComponent implements OnInit {
       );
     }
   }
-
-  // campoNoValido( campo: string ): boolean {
-  //   if ( this.registerPersonajeForm.get(campo)?.invalid ) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
 
 }
