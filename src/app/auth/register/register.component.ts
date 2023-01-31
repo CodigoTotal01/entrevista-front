@@ -22,11 +22,11 @@ export class RegisterComponent {
   //formulario -> agirnar form html -> [formgroup]
   public registerForm = this.fb.group({
       //como lucira mi formulario valor - validacion
-      nombre: ["test7", [Validators.required]],
-      nickname: ["nickname7", [Validators.required]],
-      email: ["test7@gmail.com", [Validators.required]],
-      password: ["123456", Validators.required],
-      password2: ["123456", Validators.required],
+      nombre: ["", [Validators.required]],
+      nickname: ["", [Validators.required]],
+      email: ["", [Validators.required]],
+      password: ["", Validators.required],
+      password2: ["", Validators.required],
       terminos: [true, Validators.required]
     },
     //validadores - validadores asincronos
