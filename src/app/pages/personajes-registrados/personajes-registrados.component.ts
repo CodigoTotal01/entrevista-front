@@ -33,7 +33,19 @@ this.personajesAgregados = resp.personajes,
   }
 
   buscar(termino: string){
-
+    this.cargando = true;
+    if (termino.length === 0) {
+      //basicamente retorna un arreglo vasio
+      this.personajesAgregados = this.personajeTemporal;
+      this.cargarPersonajesDelUSuario();
+      return;
+    }
+    this.personajeServices.buscarPersonajeDelUsuario(termino).subscribe((resp : any) => {
+      this.personajesAgregados = resp.personajes;
+      this.totalPersonajesAgregados = this.personajesAgregados.length;
+      this.cargando = false;
+      }
+    )
   }
 
 

@@ -73,12 +73,16 @@ export class PersonajesService {
   }
 
   personajesDelUsuario(){
-    //http://localhost:3000/api/personajes
     const url = `${base_url}/personajes`;
     return this.http.get(url, this.headers);
   }
 
+  buscarPersonajeDelUsuario(termino: string){
+    const url = `${base_url}/personajes/buscar/${termino}`;
+    return this.http.get(url, this.headers);
 
+
+  }
 
 
 
