@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { tap, map, catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
-
 import { environment } from '../../environments/environment';
+
 import {RegisterForm} from "../interfaces/register-form.interface";
 import {LoginForm} from "../interfaces/login-form.interface";
 import {Usuario} from "../models/usuario.model";
@@ -17,7 +17,6 @@ const base_url = environment.base_url;
 export class UsuariosService {
   public usuario!: Usuario;
 
-  public nuevaImagen: EventEmitter<string> = new EventEmitter<string>();
 
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -85,7 +84,7 @@ export class UsuariosService {
     localStorage.removeItem('token');
   }
 
-
+  //no deberia existir
   cargarImagen(): string{
     return `${ base_url }/uploads/usuarios/${this.usuario.uid}`
   }

@@ -7,6 +7,7 @@ const base_url = environment.base_url;
   providedIn: 'root'
 })
 export class FileUploadServiceService {
+  public nuevaImagen: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() { }
 
@@ -31,7 +32,7 @@ export class FileUploadServiceService {
       const data = await resp.json();
 
       if(data.ok){
-        return data.nombreArchivo;
+        return data.modelo.img; // retorna nombre de la nueva imagen
       }else{
         console.log(data.msg)
         return false

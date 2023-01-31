@@ -4,6 +4,7 @@ import {Usuario} from "../../models/usuario.model";
 import {Router} from "@angular/router";
 import {delay, Subscription} from "rxjs";
 import {environment} from "../../../environments/environment";
+import {FileUploadServiceService} from "../../services/file-upload-service.service";
 
 
 const base_url = environment.base_url;
@@ -22,7 +23,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   public usuario !: Usuario;
 
   constructor(public usuarioService: UsuariosService,
-              private router: Router) {
+              private router: Router, public fileUploadService: FileUploadServiceService) {
   }
 
 
@@ -33,9 +34,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.usuario = this.usuarioService.usuario;
+
     this.imgUrl = this.usuarioService.cargarImagen()
 
-    this.imgSubs = this.usuarioService.nuevaImagen.pipe(
+    this.imgSubs = this.fileUploadService.nuevaImagen.pipe(
       delay(100)
     )
       .subscribe(img => {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PersonajesService} from "../../services/personajes.service";
 import {Personaje} from "../../models/personaje.model";
 import {PersonajeAgregar} from "../../interfaces/personaje-agregar.interface";
@@ -14,25 +14,26 @@ export class PersonajesRegistradosComponent implements OnInit {
   public personajeTemporal: PersonajeAgregar[] = [];
   public cargando: boolean = true;
 
-  constructor(private personajeServices: PersonajesService) { }
+  constructor(private personajeServices: PersonajesService) {
+  }
 
   ngOnInit(): void {
     this.cargarPersonajesDelUSuario();
   }
 
 
-  cargarPersonajesDelUSuario(){
+  cargarPersonajesDelUSuario() {
     this.cargando = true;
     this.personajeServices.personajesDelUsuario().subscribe((resp: any) => {
       this.cargando = false;
-this.personajesAgregados = resp.personajes,
-  this.totalPersonajesAgregados = this.personajesAgregados.length;
+      this.personajesAgregados = resp.personajes,
+        this.totalPersonajesAgregados = this.personajesAgregados.length;
 
 
     });
   }
 
-  buscar(termino: string){
+  buscar(termino: string) {
     this.cargando = true;
     if (termino.length === 0) {
       //basicamente retorna un arreglo vasio
@@ -40,10 +41,10 @@ this.personajesAgregados = resp.personajes,
       this.cargarPersonajesDelUSuario();
       return;
     }
-    this.personajeServices.buscarPersonajeDelUsuario(termino).subscribe((resp : any) => {
-      this.personajesAgregados = resp.personajes;
-      this.totalPersonajesAgregados = this.personajesAgregados.length;
-      this.cargando = false;
+    this.personajeServices.buscarPersonajeDelUsuario(termino).subscribe((resp: any) => {
+        this.personajesAgregados = resp.personajes;
+        this.totalPersonajesAgregados = this.personajesAgregados.length;
+        this.cargando = false;
       }
     )
   }

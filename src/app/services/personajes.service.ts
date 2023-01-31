@@ -80,8 +80,6 @@ export class PersonajesService {
   buscarPersonajeDelUsuario(termino: string){
     const url = `${base_url}/personajes/buscar/${termino}`;
     return this.http.get(url, this.headers);
-
-
   }
 
 

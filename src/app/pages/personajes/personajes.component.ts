@@ -14,40 +14,39 @@ export class PersonajesComponent implements OnInit {
   public personajeTemporal: Personaje[] = [];
   public cargando: boolean = true;
 
-  public personajesGuardados:PersonajeAgregar[] = [];
+  public personajesRegistrados: Personaje[] = [];
 
+    public cool!: [];
 
-  constructor(private personajeService: PersonajesService,
-  ) {
+  constructor(public personajeService: PersonajesService) {
   }
 
 
   ngOnInit(): void {
+    this.personajesDelUsuario();
     this.cargarPersonajes();
+    console.log(this.personajesRegistrados)
   }
 
   cargarPersonajes() {
     this.cargando = true;
-   this.personajesGuardadosUsuario();
     this.personajeService.cargarPersonajesAPI().subscribe(
-
       personajes => {
-
-
         this.personajes = personajes;
         this.totalPersonajes = personajes.length;
         this.cargando = false;
-
       }
     );
   }
 
-  personajesGuardadosUsuario(){
+  personajesDelUsuario(){
     this.personajeService.personajesDelUsuario().subscribe((resp: any) => {
-      this.personajesGuardados = resp.personajes;
-    })
-
+      for (const personaje of resp.personajes) {
+        this.personajesRegistrados.push(personaje);
+      }
+    });
   }
+
 
 
 
