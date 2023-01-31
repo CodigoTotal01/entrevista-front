@@ -4,6 +4,7 @@ import {PersonajesComponent} from "./personajes/personajes.component";
 import {AuthGuard} from "../guards/auth.guard";
 import {RegistrarPersonajeComponent} from "./registrar-personaje/registrar-personaje.component";
 import {PersonajesRegistradosComponent} from "./personajes-registrados/personajes-registrados.component";
+import {UsuarioComponent} from "./mantenimiento/usuario/usuario.component";
 
 const routes: Routes = [
   {
@@ -29,6 +30,12 @@ const routes: Routes = [
     canActivate: [ AuthGuard ],
     canLoad:[AuthGuard],
     component: PersonajesRegistradosComponent
+  },
+  {
+    path: 'usuario-setings',
+    canActivate: [ AuthGuard ],
+    canLoad:[AuthGuard],
+    component: UsuarioComponent
   }
 ];
 

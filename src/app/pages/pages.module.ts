@@ -12,13 +12,15 @@ import {AuthRoutingModule} from "../auth/auth-routing.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { PersonajesRegistradosComponent } from './personajes-registrados/personajes-registrados.component';
+import { UsuarioComponent } from './mantenimiento/usuario/usuario.component';
 
 @NgModule({
   declarations: [
     PagesComponent,
     PersonajesComponent,
     RegistrarPersonajeComponent,
-    PersonajesRegistradosComponent
+    PersonajesRegistradosComponent,
+    UsuarioComponent
   ],
   imports: [
     CommonModule,

@@ -24,6 +24,12 @@ export class UsuariosService {
 
   }
 
+  get headers(){
+    return {headers: {
+        'x-token': this.token,
+      }}
+  }
+
   get uid(): string{
     return this.usuario.uid || '';
   }
@@ -79,6 +85,12 @@ export class UsuariosService {
 
   cargarImagen(): string{
     return `${ base_url }/uploads/usuarios/${this.usuario.uid}`
+  }
+
+  actualizarPerfil(data: {nickname: string, nombre: string}){
+    return this.http.put(`${base_url}/usuarios/${this.uid}`, data, this.headers);
+
+    //retorna usuario y ok
   }
 
 
