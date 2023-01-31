@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Usuario} from "../../../models/usuario.model";
 import {UsuariosService} from "../../../services/usuarios.service";
 import Swal from "sweetalert2";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-usuario',
@@ -17,7 +18,7 @@ export class UsuarioComponent implements OnInit {
 
   public imgTemp: any;
 
-  constructor(private fb:FormBuilder, public usuarioService: UsuariosService, private fileUploadService: FileUploadServiceService) {
+  constructor(private router: Router, private fb:FormBuilder, public usuarioService: UsuariosService, private fileUploadService: FileUploadServiceService) {
     this.usuario = usuarioService.usuario;
   }
 
@@ -66,7 +67,8 @@ export class UsuarioComponent implements OnInit {
     this.fileUploadService.actualizarFoto(this.imagenSubir, 'usuarios', this.usuario.uid!).then(img => {
       this.usuario.img = img
       this.usuarioService.cargarImagen();
-      Swal.fire('Imagen subida', 'La imagen se subio correctamente', 'success')
+      this.usuarioService.nuevaImagen.emit(img);
+      Swal.fire('Imagen subida', 'La imagen se subio correctamente', 'success');
     }).catch(err => {
       console.log(err)
       Swal.fire('Error al subir la imagen', 'Asegurece que el archivo sea una imagen', 'error')

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {environment} from "../../environments/environment";
 
 const base_url = environment.base_url;
@@ -16,7 +16,7 @@ export class FileUploadServiceService {
     id: string) {
     try {
       const url = `${base_url}/uploads/${coleccion}/${id}`
-      console.log(url)
+
       const formData = new FormData();
       formData.append('imagen', archivo);
 

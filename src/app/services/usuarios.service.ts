@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap, map, catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
@@ -16,6 +16,9 @@ const base_url = environment.base_url;
 })
 export class UsuariosService {
   public usuario!: Usuario;
+
+  public nuevaImagen: EventEmitter<string> = new EventEmitter<string>();
+
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -89,9 +92,8 @@ export class UsuariosService {
 
   actualizarPerfil(data: {nickname: string, nombre: string}){
     return this.http.put(`${base_url}/usuarios/${this.uid}`, data, this.headers);
-
-    //retorna usuario y ok
   }
+
 
 
 }
