@@ -5,7 +5,7 @@ import {Personaje} from "../../models/personaje.model";
 import {FormBuilder, Validators} from "@angular/forms";
 import {PersonajeAgregar} from "../../interfaces/personaje-agregar.interface";
 import Swal from "sweetalert2";
-import {catchError} from "rxjs/operators";
+import {catchError, retry} from "rxjs/operators";
 
 @Component({
   selector: 'app-registrar-personaje',
@@ -44,6 +44,10 @@ export class RegistrarPersonajeComponent implements OnInit {
 
 
   agregarPersonaje(){
+    if(this.registerPersonajeForm.get("comentario")?.value == ''){
+      Swal.fire('Ups!', `Agrega un comentario`, 'error')
+      return;
+    }
     if(this.registerPersonajeForm.get("comentario") && this.registerPersonajeForm.get("comentario")?.value != ''){
       const {comentario, calificacion} = this.registerPersonajeForm.value ;
 

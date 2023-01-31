@@ -28,20 +28,23 @@ export class LoginComponent implements OnInit {
   login() {
     console.log(this.loginForm.value);
     this.usuarioService.login( (this.loginForm.value as LoginForm) )
-      .subscribe( resp => {
-        if ( this.loginForm.get('remember')?.value ){
-          localStorage.setItem('email', this.loginForm.get('email')?.value! );
-        } else {
-          localStorage.removeItem('email');
+      .subscribe(
+        {
+          next: (resp) => {
+            if (this.loginForm.get('remember')?.value) {
+              localStorage.setItem('email', this.loginForm.get('email')?.value!);
+            } else {
+              localStorage.removeItem('email');
+            }
+
+            // Navegar al Dashboard
+            this.router.navigateByUrl('/');
+          },
+          error: (err) => {
+            Swal.fire('Error', 'Correo o contraseña incorrectos', 'error' );
+          }
         }
-
-        // Navegar al Dashboard
-        this.router.navigateByUrl('/');
-
-      }, (err) => {
-        // Si sucede un error
-        Swal.fire('Error', err.error.msg, 'error' );
-      });
+      );
 
   }
 

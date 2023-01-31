@@ -3,3 +3,16 @@
  width: 400px;
   padding-bottom: 3rem;
 }
+
+.centrar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.borde_sombreado{
+  box-shadow: -15px 20px #415a77;
+}
+.borde_redondeado{
+  border-radius: 10px;
+}

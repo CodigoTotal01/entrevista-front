@@ -25,12 +25,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   constructor(public usuarioService: UsuariosService,
               private router: Router, public fileUploadService: FileUploadServiceService) {
     this.usuario = this.usuarioService.usuario;
-    this.imgSubs = this.fileUploadService.nuevaImagen.pipe(
-      delay(100)
-    )
-      .subscribe(img => {
-        this.imgUrl = this.usuarioService.cargarImagen();
-      });
   }
 
 
