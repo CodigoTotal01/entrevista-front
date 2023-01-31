@@ -14,7 +14,7 @@ export class PersonajesComponent implements OnInit {
   public personajeTemporal: Personaje[] = [];
   public cargando: boolean = true;
 
-  public personajesRegistrados: Personaje[] = [];
+  public personajesRegistrados: Array<string> = [];
 
     public cool!: [];
 
@@ -23,9 +23,8 @@ export class PersonajesComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.personajesDelUsuario();
+    this.cargarPersonajesRegistrados();
     this.cargarPersonajes();
-    console.log(this.personajesRegistrados)
   }
 
   cargarPersonajes() {
@@ -39,15 +38,18 @@ export class PersonajesComponent implements OnInit {
     );
   }
 
-  personajesDelUsuario(){
+  cargarPersonajesRegistrados(){
     this.personajeService.personajesDelUsuario().subscribe((resp: any) => {
       for (const personaje of resp.personajes) {
-        this.personajesRegistrados.push(personaje);
+        this.personajesRegistrados.push(personaje.nombre);
       }
     });
   }
 
 
+  estaRegistrado(nombrePersonaje: string): boolean{
+    return this.personajesRegistrados.includes(nombrePersonaje)
+  }
 
 
 

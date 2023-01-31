@@ -5,6 +5,6 @@ export class Personaje{
     public genero?: string,
     public estado?: string,
     public img?: string,
-    public _id?: string,
+    public _id?: string
   ) {}
 }

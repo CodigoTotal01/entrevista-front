@@ -32,6 +32,10 @@
 </div>
 
 
+<!--<div *ngFor="let personjito of personajesRegistrados">-->
+<!--  <p>{{estaRegistrado(personjito)}}</p>-->
+<!--</div>-->
+
 <div class="row"  *ngIf="personajes.length != 0">
   <div class="col-12">
     <h4 class="d-inline">Personajes - {{(totalPersonajes)}}</h4>
@@ -48,7 +52,7 @@
             <p class="card-text"> Especie: {{personaje.especie}}</p>
             <p class="card-text"> Genero: {{personaje.genero}}</p>
             <p class="card-text"> Estado: {{personaje.estado}}</p>
-            <a [routerLink]="['/registrar-personaje', personaje.nombre, personaje.img]" class="btn btn-primary">Añadir a tu lista +</a>
+            <a [routerLink]="['/registrar-personaje', personaje.nombre, personaje.img]"  class="btn btn-primary" [ngClass]="{'disabled' : estaRegistrado(personaje.nombre)}">Añadir a tu lista +</a>
           </div>
         </div>
         <!-- Card -->
