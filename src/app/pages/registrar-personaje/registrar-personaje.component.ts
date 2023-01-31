@@ -56,7 +56,7 @@ export class RegistrarPersonajeComponent implements OnInit {
         {
           next: (resp) => {
               Swal.fire('Añadido', `Se añadio el personaje de ${resp.personaje.nombre} a tu lista`, 'success')
-              this.router.navigateByUrl('/personajes')
+              this.router.navigateByUrl('/personajes-registrados')
           },
           error: (err) => {
             Swal.fire('Error', `El personaje ya esta añadido en tu lista`, 'error')
@@ -67,12 +67,12 @@ export class RegistrarPersonajeComponent implements OnInit {
     }
   }
 
-  campoNoValido( campo: string ): boolean {
-    if ( this.registerPersonajeForm.get(campo)?.invalid ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  // campoNoValido( campo: string ): boolean {
+  //   if ( this.registerPersonajeForm.get(campo)?.invalid ) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 
 }

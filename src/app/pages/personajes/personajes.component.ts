@@ -1,8 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {PersonajesService} from "../../services/personajes.service";
 import {Personaje} from "../../models/personaje.model";
-import {delay, Subscription} from "rxjs";
-import {PersonajeAgregar} from "../../interfaces/personaje-agregar.interface";
+
 
 @Component({
   selector: 'app-personajes',
@@ -50,10 +49,5 @@ export class PersonajesComponent implements OnInit {
     )
   }
 
-  agregarPersonaje(personaje: PersonajeAgregar){
-    this.personajeService.agregarPersonaje(personaje).subscribe(resp => {
-      console.log(resp)
-    })
-  }
 
 }

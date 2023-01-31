@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PersonajesService} from "../../services/personajes.service";
+import {Personaje} from "../../models/personaje.model";
+import {PersonajeAgregar} from "../../interfaces/personaje-agregar.interface";
 
 @Component({
   selector: 'app-personajes-registrados',
@@ -7,6 +9,10 @@ import {PersonajesService} from "../../services/personajes.service";
   styleUrls: ['./personajes-registrados.component.css']
 })
 export class PersonajesRegistradosComponent implements OnInit {
+  public totalPersonajesAgregados: number = 0;
+  public personajesAgregados: PersonajeAgregar[] = [];
+  public personajeTemporal: PersonajeAgregar[] = [];
+  public cargando: boolean = true;
 
   constructor(private personajeServices: PersonajesService) { }
 
@@ -16,9 +22,18 @@ export class PersonajesRegistradosComponent implements OnInit {
 
 
   cargarPersonajesDelUSuario(){
-    this.personajeServices.personajesDelUsuario().subscribe(resp => {
-      console.log(resp)
+    this.cargando = true;
+    this.personajeServices.personajesDelUsuario().subscribe((resp: any) => {
+      this.cargando = false;
+this.personajesAgregados = resp.personajes,
+  this.totalPersonajesAgregados = this.personajesAgregados.length;
+
+
     });
+  }
+
+  buscar(termino: string){
+
   }
 
 
