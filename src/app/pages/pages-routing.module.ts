@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {PersonajesComponent} from "./personajes/personajes.component";
 import {AuthGuard} from "../guards/auth.guard";
 import {RegistrarPersonajeComponent} from "./registrar-personaje/registrar-personaje.component";
+import {PersonajesRegistradosComponent} from "./personajes-registrados/personajes-registrados.component";
 
 const routes: Routes = [
   {
@@ -18,7 +19,16 @@ const routes: Routes = [
 
   {
     path: 'registrar-personaje/:nombre/:img',
+    canActivate: [ AuthGuard ],
+    canLoad:[AuthGuard],
     component: RegistrarPersonajeComponent
+  },
+
+  {
+    path: 'personajes-registrados',
+    canActivate: [ AuthGuard ],
+    canLoad:[AuthGuard],
+    component: PersonajesRegistradosComponent
   }
 ];
 

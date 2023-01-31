@@ -5,6 +5,7 @@ import {catchError, map} from "rxjs/operators";
 import {Personaje} from "../models/personaje.model";
 import {delay, of} from "rxjs";
 import {PersonajeAgregar} from "../interfaces/personaje-agregar.interface";
+import * as http from "http";
 
 
 const url_rick_morty = environment.url_rick_morty;
@@ -70,6 +71,15 @@ export class PersonajesService {
     const url = `${base_url}/personajes`;
     return this.http.post<{ok: boolean, personaje: Personaje} >(url, personaje, this.headers);
   }
+
+  personajesDelUsuario(){
+    //http://localhost:3000/api/personajes
+    const url = `${base_url}/personajes`;
+    return this.http.get(url, this.headers);
+  }
+
+
+
 
 
 }

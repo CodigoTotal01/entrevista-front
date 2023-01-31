@@ -11,12 +11,14 @@ import { RegistrarPersonajeComponent } from './registrar-personaje/registrar-per
 import {AuthRoutingModule} from "../auth/auth-routing.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { PersonajesRegistradosComponent } from './personajes-registrados/personajes-registrados.component';
 
 @NgModule({
   declarations: [
     PagesComponent,
     PersonajesComponent,
-    RegistrarPersonajeComponent
+    RegistrarPersonajeComponent,
+    PersonajesRegistradosComponent
   ],
   imports: [
     CommonModule,
