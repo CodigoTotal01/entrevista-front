@@ -31,11 +31,6 @@
   </div>
 </div>
 
-
-<!--<div *ngFor="let personjito of personajesRegistrados">-->
-<!--  <p>{{estaRegistrado(personjito)}}</p>-->
-<!--</div>-->
-
 <div class="row"  *ngIf="personajes.length != 0">
   <div class="col-12">
     <h4 class="d-inline">Personajes de la serie - ({{(totalPersonajes)}})</h4>
@@ -43,9 +38,9 @@
     <!-- Row -->
     <div class="row" >
       <!-- column  for -->
-      <div class="col-lg-3 col-md-6" *ngFor="let personaje of personajes">
+      <div class="col-lg-3 col-md-6 personaje borde_redondeado" *ngFor="let personaje of personajes">
         <!-- Card -->
-        <div class="card">
+        <div class="card ">
           <img class="card-img-top img-responsive borde_redondeado" [src]="personaje.img" alt="Card image cap">
           <div class="card-body">
             <h4 class="card-title">{{personaje.nombre}}</h4>
