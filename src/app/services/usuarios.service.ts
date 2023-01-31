@@ -46,7 +46,7 @@ export class UsuariosService {
     return this.http.post(`${ base_url }/login`, formData )
       .pipe(
         tap( (resp: any) => {
-          console.log(resp.token )
+          this.usuario = resp.usuarioDB;
           this.guardarLocalStorage('token', resp.token )
         })
       );
@@ -64,11 +64,22 @@ export class UsuariosService {
       tap( (resp: any) => {
         localStorage.setItem('token', resp.token );
       }),
-      map( resp => true),
+      map( resp =>{
+        this.usuario = resp.usuarioDB;
+        return true;
+      }),
       catchError( error => of(false) )
     );
   }
 
+  logout() {
+    localStorage.removeItem('token');
+  }
+
+
+  cargarImagen(): string{
+    return `${ base_url }/uploads/usuarios/${this.usuario.uid}`
+  }
 
 
 }

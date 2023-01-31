@@ -47,7 +47,4 @@ this.personajesAgregados = resp.personajes,
       }
     )
   }
-
-
-
 }

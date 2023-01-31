@@ -10,14 +10,6 @@ export class Usuario {
     public password?: string,
     public img?: string,
     public uid?: string
-  ) {}
-
-  get imagenUrl(){
-    if(this.img){
-      return `${base_url}/upload/usuarios/${this.img}`
-    }else{
-      return `${base_url}/upload/usuarios/no-image`
-    }
+  ) {
   }
-
 }

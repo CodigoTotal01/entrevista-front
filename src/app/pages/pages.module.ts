@@ -25,7 +25,6 @@ import { PersonajesRegistradosComponent } from './personajes-registrados/persona
     PagesRoutingModule,
     SharedModule,
     RouterOutlet,
-    FormsModule,
     ReactiveFormsModule,
     HttpClientModule
   ],
