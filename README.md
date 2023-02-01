@@ -1,11 +1,12 @@
 # EntrevistaFront
 
 ## Para ejecutar el programa del frontend
-(Antes se debera ejecutar el backend → https://github.com/CodigoTotal01/backend-entrevista )
+(Antes se debera ejecutar el backend para que se pueda realizar el consumo del servicio → https://github.com/CodigoTotal01/backend-entrevista )
 Ejecutar el front → `ng serve` eh ir a  `http://localhost:4200/`. (automaticamente los redijira al login)
 
 # Nota
-Todo el contenido en cuando deciciones tecnicas sera por la parte del Front para las del backent dirigirce al anterior enlace, donde hace referencia del backent.
+* Todo el contenido en cuando deciciones tecnicas sera por la parte del Front para las del backent dirigirce al anterior enlace, donde hace referencia del backent.
+* Descargar directamente este repositorio si sse desea probar la aplicación
 ## Deciciones técnicas
 * En cuanto al diseño por cuestion de tiempo desidi emplear un template de terceros, de esta forma algun que otro defecto a nivel de maquetación me seria mas facil poder solucionarlo. Esto me permitio ganar mas tiempo para invertirlo en la parte de la creacion del backend y consumo de las API.
 * Cuando comence a crear mis servicios (services component) emplee el servicio HttpClient (para el consumo de las API), emple operadores rxjs para simplificar la optencion de la data, y tambien lo emplee para poder guardar el token el usuario e email (guardado en el local storage) los datos fueron enviados por el backent usando JWT. 
@@ -17,6 +18,34 @@ Todo el contenido en cuando deciciones tecnicas sera por la parte del Front para
 # Problemas durante el desarrollo
 * Cuento con conocimientos de testing en angular, pero por el tiempo y falta de conocimientos mas avanzados no implemente en su mayoria estos ya que como bien se sabe realizar la parte del testing puede demorar igual o mas que el propio de la pagina.
 * Falta implementar contenders Docker, por que aun no e comenzado mi curso de Docker y por ello no se como se usarlo.
+
+# Imagenes del proyecto (Escritorio)
+* Registro
+![image](https://user-images.githubusercontent.com/85316618/215914846-5adaa51b-dbfa-4839-a2e0-f3e84da6b836.png)
+* Login
+![image](https://user-images.githubusercontent.com/85316618/215914890-97934ca8-c904-4071-8900-7e59832466fb.png)
+* Pagina principal de los personajes 
+![image](https://user-images.githubusercontent.com/85316618/215915026-0652de54-e744-48ca-8848-e78ffdbfc60c.png)
+* Personajes registrados por el usuario
+![image](https://user-images.githubusercontent.com/85316618/215915082-90e54fdf-0e63-44d3-af77-b1b457c34a79.png)
+* Pagina para editar el  nombre y el nickname
+![image](https://user-images.githubusercontent.com/85316618/215915208-b760b699-83ae-4cdb-a8c0-8b1a378e1535.png)
+
+# Imagenes del proyecto (Mobile desing)
+# Imagenes del proyecto (Escritorio)
+* Registro
+![image](https://user-images.githubusercontent.com/85316618/215915302-4decec39-d3ce-4b0d-a9bd-75578083e192.png)
+* Login
+![image](https://user-images.githubusercontent.com/85316618/215915319-3734d1ed-4be3-4ec4-86c9-22991dd39827.png)
+
+* Pagina principal de los personajes 
+![image](https://user-images.githubusercontent.com/85316618/215915352-ec858640-e9a7-436b-8e9e-3dc7deeb58c0.png)
+
+* Personajes registrados por el usuario
+![image](https://user-images.githubusercontent.com/85316618/215915621-4398e5ac-2864-41ca-acc7-c90240129439.png)
+
+* Pagina para editar el  nombre y el nickname
+![image](https://user-images.githubusercontent.com/85316618/215915641-e6fbd527-63e8-4311-b676-df90aae71e9b.png)
 
 
 
