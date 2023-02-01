@@ -1,27 +1,18 @@
 # EntrevistaFront
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.8.
+## Para ejecutar el programa del frontend
+(Antes se debera ejecutar el backend → https://github.com/CodigoTotal01/backend-entrevista )
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. 
+# Diseño
+Emplee un diseño acorde a las caracteristicas asi que cumple con la parte responsive web desing 
+# Registro de usuarios
+![image](https://user-images.githubusercontent.com/85316618/215911897-79689f72-6f94-4757-b9a5-02c61918ec95.png)
+![image](https://user-images.githubusercontent.com/85316618/215911917-2373c6c3-e596-4dbb-8b2c-15729de7a8ec.png)
+# Login
+![image](https://user-images.githubusercontent.com/85316618/215912033-e4bab0e5-16e3-4910-895d-e88a762cf5da.png)
+![image](https://user-images.githubusercontent.com/85316618/215912063-2d5a7ce8-6bde-4b8d-8670-50cc229257b1.png)
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
