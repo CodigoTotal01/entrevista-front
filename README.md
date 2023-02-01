@@ -1,8 +1,8 @@
 # EntrevistaFront
 
 ## Para ejecutar el programa del frontend
-(Antes se debera ejecutar el backend para que se pueda realizar el consumo del servicio → https://github.com/CodigoTotal01/backend-entrevista )
-Ejecutar el front → `ng serve` eh ir a  `http://localhost:4200/`. (automaticamente los redijira al login)
+(Antes se debera ejecutar el backend para que se pueda realizar el consumo del servicio → https://github.com/CodigoTotal01/backend-entrevista ); Por parte del frontend
+Ejecutar en la terminal → `ng serve` eh ir a  `http://localhost:4200/`. (automaticamente los redijira al login)
 
 # Nota
 * Todo el contenido en cuando decisiones técnicas será por la parte del Front para las del backend dirigirse al anterior enlace, donde hace referencia del backend.
