@@ -6,7 +6,8 @@ Ejecutar el front → `ng serve` eh ir a  `http://localhost:4200/`. (automaticam
 
 # Nota
 * Todo el contenido en cuando decisiones técnicas será por la parte del Front para las del backend dirigirse al anterior enlace, donde hace referencia del backend.
-* Descargar directamente este repositorio si sse desea probar la aplicación
+* Descargar directamente este repositorio para probar la aplicación
+
 ## Decisiones técnicas
 * En cuanto al diseño por cuestión de tiempo decidí emplear un template de terceros, de esta forma algún que otro defecto a nivel de maquetación me seria mas facil poder solucionarlo. Esto me permitió ganar más tiempo para invertirlo en la parte de la creación del backend y consumo de las API.
 * Cuando comencé a crear mis servicios (services component) emplee el servicio HttpClient (para el consumo de las API), emple operadores rxjs para simplificar la obtención de la data, y tambien lo emplee para poder guardar el token el usuario e email (guardado en el localstorage) los datos fueron enviados por el backend usando JWT. 
